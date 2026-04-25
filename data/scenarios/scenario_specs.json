@@ -1,0 +1,92 @@
+[
+    {
+      "scenario_id": "S1",
+      "description": "정상 Sort Test 통과 구간",
+      "expected_final_result": "PASS",
+      "allowed_warning_ratio": 0.00,
+      "allowed_critical_ratio": 0.00,
+      "required_reason_keywords": [],
+      "recommended_action": "NO_ACTION"
+    },
+    {
+      "scenario_id": "S2",
+      "description": "Vt 순간 스파이크 후 자가 회복",
+      "expected_final_result": "PASS_WITH_WARNING",
+      "allowed_warning_ratio": 0.10,
+      "allowed_critical_ratio": 0.00,
+      "required_reason_keywords": ["vt_spike"],
+      "recommended_action": "MONITOR"
+    },
+    {
+      "scenario_id": "S3",
+      "description": "Vt 지속 상승 - 공정 드리프트 의심",
+      "expected_final_result": "FAIL",
+      "allowed_warning_ratio": 0.60,
+      "allowed_critical_ratio": 0.00,
+      "required_reason_keywords": ["vt_high"],
+      "recommended_action": "ENGINEERING_REVIEW"
+    },
+    {
+      "scenario_id": "S4",
+      "description": "테스트 사이클 타임 점진 증가 - ATE 성능 저하",
+      "expected_final_result": "FAIL",
+      "allowed_warning_ratio": 0.45,
+      "allowed_critical_ratio": 0.00,
+      "required_reason_keywords": ["test_time_jump"],
+      "recommended_action": "RETEST_AND_ANALYZE"
+    },
+    {
+      "scenario_id": "S5",
+      "description": "반복 테스트 에러 - 접촉 불량 의심",
+      "expected_final_result": "PASS_WITH_WARNING",
+      "allowed_warning_ratio": 0.05,
+      "allowed_critical_ratio": 0.00,
+      "required_reason_keywords": ["test_error_detected"],
+      "recommended_action": "NO_ACTION"
+    },
+    {
+      "scenario_id": "S6",
+      "description": "Leakage 측정 신호 손실 - 프로브 이상",
+      "expected_final_result": "FAIL",
+      "allowed_warning_ratio": 0.00,
+      "allowed_critical_ratio": 0.00,
+      "required_reason_keywords": ["leakage_dropout"],
+      "recommended_action": "FAIL_LOCK"
+    },
+    {
+      "scenario_id": "S7",
+      "description": "전기적 노이즈 burst 후 회복",
+      "expected_final_result": "PASS_WITH_WARNING",
+      "allowed_warning_ratio": 0.05,
+      "allowed_critical_ratio": 0.00,
+      "required_reason_keywords": ["vt_spike"],
+      "recommended_action": "NO_ACTION"
+    },
+    {
+      "scenario_id": "S8",
+      "description": "Vt 이상 + 사이클 타임 + 에러 복합 발생",
+      "expected_final_result": "FAIL",
+      "allowed_warning_ratio": 0.80,
+      "allowed_critical_ratio": 0.05,
+      "required_reason_keywords": ["vt_high", "test_time_jump", "test_error_detected", "ooc_event"],
+      "recommended_action": "SHUTDOWN_REQUIRED"
+    },
+    {
+      "scenario_id": "S9",
+      "description": "Vt 이상 감지 후 재테스트 통과",
+      "expected_final_result": "PASS_WITH_WARNING",
+      "allowed_warning_ratio": 0.10,
+      "allowed_critical_ratio": 0.01,
+      "required_reason_keywords": ["vt_spike"],
+      "recommended_action": "RETEST_RECOMMENDED"
+    },
+    {
+      "scenario_id": "S10",
+      "description": "Vt 이상 후 회복 실패 - Lot 판정 FAIL",
+      "expected_final_result": "FAIL",
+      "allowed_warning_ratio": 0.70,
+      "allowed_critical_ratio": 0.20,
+      "required_reason_keywords": ["vt_high", "test_time_jump", "test_error_detected"],
+      "recommended_action": "SHUTDOWN_REQUIRED"
+    }
+  ]
